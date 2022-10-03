@@ -1,0 +1,1384 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Newsletter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style type="text/css">
+      /* CLIENT-SPECIFIC STYLES */
+    
+      html,
+      body {
+         margin: 0 auto !important;
+         padding: 0 !important;
+         height: 100% !important;
+         width: 100% !important;
+         font-family: 'PT Sans', sans-serif;
+      }
+
+      /* What it does: Stops email clients resizing small text. */
+      * {
+         -ms-text-size-adjust: 100%;
+         -webkit-text-size-adjust: 100%;
+      }
+
+      /* What it does: Centers email on Android 4.4 */
+      div[style*="margin: 16px 0"] {
+         margin: 0 !important;
+      }
+
+      /* What it does: Stops Outlook from adding extra spacing to tables. */
+      table,
+      td {
+         mso-table-lspace: 0pt !important;
+         mso-table-rspace: 0pt !important;
+      }
+      table th{
+         border-bottom: 2px solid #80a7bb;
+      }
+      /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+      table {
+         border-spacing: 0 !important;
+         border-collapse: collapse !important;
+         /*table-layout: fixed !important;*/
+         margin: 0 auto !important;
+      }
+      table table table {
+         table-layout: auto;
+      }
+
+      /* What it does: Uses a better rendering method when resizing images in IE. */
+      img {
+         -ms-interpolation-mode:bicubic;
+      }
+
+      /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+      a {
+         text-decoration: none;
+      }
+
+      /* What it does: A work-around for email clients meddling in triggered links. */
+      *[x-apple-data-detectors],  /* iOS */
+      .unstyle-auto-detected-links *,
+      .aBn {
+         border-bottom: 0 !important;
+         cursor: default !important;
+         color: inherit !important;
+         text-decoration: none !important;
+         font-size: inherit !important;
+         font-family: inherit !important;
+         font-weight: inherit !important;
+         line-height: inherit !important;
+      }
+
+      /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+      .a6S {
+         display: none !important;
+         opacity: 0.01 !important;
+      }
+      /* If the above doesn't work, add a .g-img class to any image in question. */
+      img.g-img + div {
+         display: none !important;
+      }   
+      .ExternalClass,
+      .ExternalClass a,
+      .ExternalClass span,
+      .ExternalClass b,
+      .ExternalClass br,
+      .ExternalClass p,
+      .ExternalClass div {
+        line-height: inherit;
+      }
+      /* iOS BLUE LINKS */
+
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+      .msonopad 
+      {
+        padding: 0 4px;
+        /*  padding: 0 5px 0px 15px;*/
+      }  
+      .sign a 
+      {
+        color: #363636;
+      }
+      .sign a, *[class=sign-padd]
+      {
+        color: #363636;
+      }
+      .shadow{
+        -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.03);
+        -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.03);
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.03);
+      }
+      p{
+        margin: 20px 0!important;
+      }
+      
+      .padd-mob{
+        padding: 20px!important;
+      }
+      .applyclick a:active, .applyclick a:focus{color: #ffffff; text-decoration: none;}
+      /* MOBILE STYLES */
+      @media screen and (max-width: 599px) 
+      {
+        .pl{
+        padding-left: 0!important;
+      }
+        .mob-right{
+          text-align: right!important;
+        }
+        .pr-2{
+          padding-right: 3px;
+        }
+      
+        .d-block{
+          display: block!important;
+        }
+        /* ADJUSTS LAYOUT OF LOGO IMAGE */
+        .logo img 
+        {
+          margin: 0 auto !important;
+        }
+        /* ALLOWS FOR FLUID TABLES */
+        .wrapper 
+        {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        /*ALLOWS FOR FULL-WIDTH TABLES */
+        .responsive-table 
+        {
+          width: 100% !important;
+        }
+        /* ALLOWS FOR FULL TD */
+        .flex, *[class=flex] 
+        {
+          width: 100% !important;
+          display: block !important;
+          text-align: left !important;
+        }
+        .flex2, *[class=flex2] 
+        {
+          width: 100% !important;
+          display: block !important;
+          text-align: center !important;
+        }
+        .flex3, *[class=flex3] 
+        {
+          display: none !important;     
+        }
+        .flex4, *[class=flex4] {
+            width: 80% !important;
+            display: block !important;
+            text-align: center !important;
+            border-bottom: 1px dashed #a9a7a7;
+            padding-bottom: 20px !important;
+            margin: 20px auto!important;
+        }
+        .flex5, *[class=flex5] {
+          width: 50% !important;
+          display: inline-grid !important;
+          display: -webkit-inline-grid !important;
+          display: -moz-inline-grid !important;
+          display: -o-inline-grid !important;
+          display: -ms-inline-grid !important;
+        }
+        /* ADJUSTS LAYOUT OF FONT SIZE */
+        .mobile-main-head, *[class=mobile-main-head]
+        {
+          font-size: 70px !important;
+          line-height: 60px !important;
+        }
+        .mobile-font, *[class=mobile-font]
+        {
+          font-size: 17px !important;
+          line-height: 27px !important;
+        }
+        .mobile-font-head, *[class=mobile-font-head] 
+        {
+          font-size: 26px !important;
+          line-height: 32px !important;
+        }
+        .mobile-font-head2, *[class=mobile-font-head2] 
+        {
+          font-size: 22px !important;
+          line-height: 28px !important;
+        }
+        .mobile-font-subhead, *[class=mobile-font-subhead] 
+        {
+          font-size: 21px !important;
+          line-height: 31px !important;
+        }
+        .mobile-font-subtitle, *[class=mobile-font-subtitle] 
+        {
+          font-size: 19px !important;
+          line-height: 29px !important;
+        }
+        .mobile-font-signature, *[class=mobile-font-signature]
+        {
+          font-size: 17px !important;
+          line-height: 17px !important;
+        }
+
+        /* ALLOWS FOR BORDER */
+        .bdr-top-grey {
+          border-top: 1px solid #cccccc!important;
+        }
+        .no-border
+        {
+          border: none !important;
+        }
+        .no-t-brd 
+        {
+          border-top: none !important;
+        }
+        .no-b-brd 
+        {
+          border-bottom: none !important;
+        }
+        .no-r-brd 
+        {
+          border-right: none !important;
+        }
+        .no-l-brd 
+        {
+          border-left: none !important;
+        }
+        
+        .black-t-brd
+        {
+          border-top: 1px dashed #363636 !important;
+        }
+        .black-b-brd
+        {
+          border-bottom: 1px dashed #363636 !important;
+        }
+        .black-r-brd 
+        {
+          border-right: 1px dashed #363636 !important;
+        }
+        .black-l-brd
+        {
+          border-left: 1px dashed #363636 !important;
+        }
+        
+        .border
+        {
+          border-left: none !important;
+          border-right: none !important;
+          border-bottom: 1px solid #dddcd9;
+          border-top: 1px solid #dddcd9;
+        }
+        .brdtopbottom, *[class=brdtopbottom] {
+            border-left: 0px !important;
+            border-right: 0px !important;
+            border-bottom: 1px solid #dedede;
+            border-top: 1px solid #dedede;
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+        }
+        /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+        .mleft
+        {
+          text-align: left!important;
+        }
+        .mcenter
+        {
+          text-align: center !important;
+        }
+        .no-padd
+        {
+          padding: 0px !important;
+        }
+        .no-pl
+        {
+          padding-left: 0px !important;
+        }
+        .no-pr
+        {
+          padding-right: 0px !important;
+        }
+        .nopadd-lr
+        {
+          padding-left: 0px !important;
+          padding-right: 0px !important;
+        }
+        .pb-0 {
+          padding-bottom: 0px !important;
+        }
+        .pt-10
+        {
+          padding-top: 10px !important;
+        }
+        .pb-10
+        {
+          padding-bottom: 10px !important;
+        }
+        .pt-15
+        {
+          padding-top: 15px !important;
+        }
+        .pt-20
+        {
+          padding-top: 20px !important;
+        }
+        .pb-20
+        {
+          padding-bottom: 20px !important;
+        }
+        .pb-25
+        {
+          padding-bottom: 25px !important;
+        }
+        .padd-top-8
+        {
+          padding-top: 8px !important;
+        }
+        .padr25{padding-right: 25px !important;}
+        .pad-lr
+        {
+          padding-left: 60px!important;
+          padding-right: 60px!important;
+        }
+        .sho_mob{
+          display: none !important;
+        }
+        .w-35{
+          width: 35%!important;
+        }
+        .w-100{
+          width: 100%!important;
+        }
+        /*.padd-lr-20
+        {
+          padding-right: 20px !important;
+          padding-left: 20px !important;
+        }*/
+
+        /* UTILITY CLASSES FOR ADJUSTING MARGIN ON MOBILE */  
+        .h-auto{height: auto!important;}    
+        .no-mb
+        {
+          margin-bottom: 0px !important;
+        }
+
+        /* UTILITY CLASSES FOR ADJUSTING Vertical ALign  */      
+        .mob-valign-top
+        {
+          vertical-align: top !important;
+        }
+
+        /* ADJUSTS FOR IMAGE CENTER */
+        .img-center
+        {
+          margin: 0 auto !important;
+        }
+
+        /* ADJUSTS FOR TEXT CENTER */
+        .text-center
+        {
+          text-align: center !important;
+        }
+      }
+      div[style*="margin: 16px 0;"] { margin: 0 !important; }
+    </style>
+    <!--[if gte mso 9]>
+    <style type="text/css" media="all">
+      .msonopad {
+      padding-right: 10px;
+      text-align:center;
+      width:40px;
+      }
+      img.mso-img {
+      padding-top: 10px;
+      line-height:24px;
+      }
+      tr.space-mso{
+      font-size:0;
+      mso-line-height-alt:0;
+      mso-margin-top-alt:1px;
+      }
+    </style>
+    <![endif]-->
+  </head>
+  <body style="margin: 0 !important; padding: 0 !important;background:#ffffff;">
+<!--[if (gte mso 9)|(ie)]>
+    <center>
+      <table align="center" border="0" cellspacing="0" cellpadding="0"  width="800">
+        <tr>
+          <td align="center" valign="top" width="800">
+            <![endif]--><!-- HIDDEN PREHEADER TEXT -->
+<div style="mso-hide:all; display:none; font-size:1px; color:#333333; line-height:0;font-family: Arial, Helvetica, sans-serif; max-height:0; max-width:0; opacity:0; overflow:hidden;">Newsletter</div>
+
+<table align="center">
+  <tbody>
+    <tr>
+      <td align="center" class="container" style="background:#ffffff;border:1px solid #dddddd;" width="800">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+            <tr>
+                        <td align="left" bgcolor="#e6e6e5" style="padding:0px;">
+                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td align="left">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left" bgcolor="#ffffff" style="padding: 10px 20px">
+                                                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                      <td align="left" class="mobile-font-head flex2" style="font-size:46px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#272525;line-height:56px;" width="50%"><strong>Journal of Ethnic Foods</strong></td>
+
+                                                       <td align="center" bgcolor="#ffffff" class="mobile-font flex" style="font-size:18px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#272525;line-height: 24px;" valign="middle" width="50%"><img alt="Google" border="0" class="center-on-narrow" src="images/logo.png" style="max-width: 100%;">
+                                                        Affiliated with Korea Food Research Institute
+
+                                                      </td>
+                                                   </tr>
+                                               </tbody>
+                                           </table>
+                                          </td>
+                                         </tr>   
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            <tr>
+            <td align="left" bgcolor="#ffffff" style="padding: 10px 20px 10px 20px;">
+            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" bgcolor="#F2F1F0" class="mobile-font" style="font-size:18px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#272525;line-height:28px;padding:20px 30px 20px 30px;"><span><a href="https://journalofethnicfoods.biomedcentral.com/" target="_blank" style="color:#000000; text-decoration: underline;">Home</a></span> 
+                    &nbsp; &nbsp;
+                    <span><a href="https://journalofethnicfoods.biomedcentral.com/about" target="_blank" style="color:#000000;text-decoration: underline;">About</a></span>
+                    &nbsp; &nbsp;
+                    <span><a href="https://journalofethnicfoods.biomedcentral.com/articles" target="_blank" style="color:#000000;text-decoration: underline;">Articles</a></span>
+                    &nbsp; &nbsp;
+                    <span><a href="https://journalofethnicfoods.biomedcentral.com/submission-guidelines" target="_blank" style="color:#000000;text-decoration:underline;">Submission Guidelines</a></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+           <td align="left" bgcolor="#ffffff" style="padding: 10px 30px 0px 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" style="font-size:32px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;font-weight: bold;line-height:35px;">
+                      <span class="mobile-font-head">Aims and scope</span>
+                     <!--  <p class="full-width" style="border-bottom:4px solid #8a2f02;width: 35%;"></p> -->
+                  </td>
+                </tr>
+                <tr>
+                   <td align="center" bgcolor="#ffffff" style="padding-bottom: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="30%" style="border-bottom:4px solid #8a2f02;">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 5px;">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          </tr>
+            <tr>
+              <td align="center" bgcolor="#ffffff" valign="top" style="padding: 0px 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr> 
+                      <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;padding-bottom: 15px;"><em>Journal of Ethnic Foods</em> provides in-depth reporting on the consumption of food all over the world, with the aim of highlighting the benefits of traditional understanding and knowledge of foods.<br><br>
+
+                      Published by BMC and supported by the Korea Food Research Institute, this journal is a synthesis of insights on food gastronomy, eating behaviors, and food traditions and cultures, and how they relate to specific geographical contexts, ethnicities, and societal and environmental factors. The journal has a broad scope, examining food and eating from the perspectives of ethnography, cultural anthropology, population health and well-being, biology, history, ecology, and geography.<br><br>
+
+                      An Open Access journal, <em>Journal of Ethnic Foods</em> welcomes articles in these diverse areas of study, especially those highlighting the multidisciplinary nature of the study of ethnic food.</td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#ffffff" valign="top" style="padding: 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr>
+                        <td align="left" bgcolor="#ffd706" style="padding: 30px 20px;">
+                          <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                            <tbody>
+                             <tr>
+                              <td align="left" class="mobile-font pl flex pb-20" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#272525;line-height:24px;" width="70%">
+                                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                  <tbody>
+                                   <tr>
+                                    <td>
+                                      <span class="mobile-font-head" style="font-size: 28px; line-height:30px;"><strong>Message from the Editor-in-Chief</strong></span>
+                                    </td>
+                                   </tr>
+                                   <tr>
+                                     <td align="left" style="padding-bottom: 15px; text-align: left;">
+                                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-bottom:4px solid #8a2f02;">
+                                        <tbody>
+                                          <tr>
+                                            <td align="left" style="line-height: 5px;">&nbsp;</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                   <tr>
+                                    <td>
+                                      Our journal fully recognizes and lays heavy emphasis on the importance of a diverse, inclusive, and multidisciplinary approach to studying food, eating behaviors, and heritage.
+                                    </td>
+                                   </tr>
+                                 </tbody>
+                               </table>
+                             </td>
+                             <td class="flex3" width="5%"></td>
+                             <td align="left" class="mobile-font flex2" style="font-size:15px;font-weight: 600; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;line-height: 20px;" valign="middle" width="25%"><img alt="hyung-hi" border="0" class="center-on-narrow" src="images/hyung-hi.png" style="max-width: 100%;"><br><span>Hyung-Hee Baek, Ph.D.
+                             Editor-in-Chief<br>
+                             President of the Korea<br>
+                             Food Research Institute</span>
+                            </td>
+                           </tr>
+                       </tbody>
+                   </table>
+                  </td>
+                 </tr>
+                    
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+                        <td align="left" bgcolor="#ffffff" style="padding: 20px 20px;">
+                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td align="left">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left" bgcolor="#ffffff" style="padding:0px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                       <td align="center" bgcolor="#ffffff" class="mobile-font flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#0080cc;line-height: 24px;" valign="middle" width="50%"><img alt="food-heritage" border="0" class="center-on-narrow" src="images/food-heritage.png" style="max-width: 100%;"></td>
+                                                       <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#272525;line-height:22px;padding-left: 20px;" width="50%">This journal looks beyond a research informed solely by biology, technology, and industrial engineering, and seeks a more comprehensive paradigm to answer a broader question—what role is food going to play in our societies in the future, especially in the post-industrialized era? We believe that looking at food from a wider perspective in terms of behaviors and well being, ethnicity, traditions, the environment, and cultural heritage is as important as other approaches in food research today. We hope that more food scientists and countries will take a greater interest in the importance of food analyzed from this interdisciplinary perspective in the Journal of Ethnic Foods.</td> </tr>
+                                               </tbody>
+                                           </table>
+                                          </td>
+                                         </tr>   
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            <tr>
+           <td align="left" bgcolor="#F2F1F0" style="padding: 30px 30px 0px 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" class="mobile-font-head" style="font-size:32px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;font-weight: bold;line-height:38px;">
+                      <span>About our performance</span>
+                      <!-- <p class="full-width"style="border-bottom:4px solid #8a2f02;width: 50%;"></p> -->
+                  </td>
+                </tr>
+                <tr>
+                   <td align="center" bgcolor="#F2F1F0" style="padding-bottom: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="40%" style="border-bottom:4px solid #8a2f02;">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 5px;">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          </tr>
+            <tr>
+              <td align="center" bgcolor="#F2F1F0" valign="top" style="padding: 0px 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr> 
+                      <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;padding-bottom: 15px;"><em>Journal of Ethnic Foods</em> has a consistently high CiteScore value—a measure of the yearly average number of citations to recent articles published in the journal. It unfailingly ranks in a high percentile across two broad subject areas, thereby making it that much easier for your work to be read and cited by many.</td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+                <td align="left" bgcolor="#ffffff" style="padding: 20px 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                      <tbody>
+                          <tr>
+                            <td align="left">
+                              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                  <tbody>
+                                      <tr>
+                                          <td align="left" bgcolor="#ffffff" style="padding:0px;">
+                                          <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                              <tbody>
+                                               <tr>
+                                                 <td align="center" bgcolor="#ffffff" class="flex pb-10" width="50%"><img alt="food-heritage" border="0" src="images/graph1.png" style="max-width: 100%;"></td>
+                                                 <td align="center" bgcolor="#ffffff" class="flex no-l-brd  bdr-top-grey pt-10" width="50%" style="border-left: 1px solid#cccccc;"><img alt="food-heritage" border="0" src="images/graph2.png" style="max-width: 100%;"></td>
+                                               </tr>
+                                         </tbody>
+                                     </table>
+                                    </td>
+                                   </tr>   
+                                  </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </td>
+            </tr>
+            <tr>
+              <td align="left" bgcolor="#ffffff" style="padding: 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="middle" style="border-top:1px solid #cccccc;">&nbsp;</td>
+                        </tr>   
+                    </tbody>
+                </table>
+              </td>
+            </tr>
+          <tr>
+              <td align="left" bgcolor="#ffffff" style="padding: 0 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                    <tbody>
+                        <tr>
+                          <td align="left">
+                            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                    <tr>
+                                      <td align="left" bgcolor="#ffffff" style="padding:0px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                          <tbody>
+                                             <tr>
+                                               <td align="center" bgcolor="#ffffff" class="flex no-padd" width="50%" style="padding-left:20px;">
+                                                 <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                      <tr> 
+                                                        <td colspan="3" align="left" style="font-size:20px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 20px;">
+                                                          CiteScore 2021
+                                                        </td>
+                                                      </tr>
+                                                      <tr> 
+                                                        <td align="center" style="font-size:24px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 32px; font-weight: bold;" width="15%">
+                                                          3.3
+                                                        </td>
+                                                        <td align="center" style="font-size:24px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 32px; font-weight: bold;" width="15%">
+                                                          =
+                                                        </td>
+                                                          <td align="left" bgcolor="#ffffff" width="70%">
+                                                             <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" style="margin: 0!important;">
+                                                                <tbody>
+                                                                  <tr> 
+                                                                    <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; border-bottom:1px solid #cccccc; padding-bottom: 5px;">
+                                                                      477 citations 2018—2012
+                                                                    </td>
+                                                                  </tr>
+                                                                  <tr> 
+                                                                    <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-top: 5px;">
+                                                                      146 documents 2018—2012
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                          </td>
+                                                      </tr>
+                                                      <tr> 
+                                                        <td colspan="3" align="left" class="pb-10" style="font-size:12px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 20px; padding-top: 20px;">
+                                                          Calculated on 05 May, 2022
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                               </td>
+                                               <td align="center" bgcolor="#ffffff" class="flex no-padd no-l-brd  bdr-top-grey" width="50%" style="border-left:1px solid #cccccc; padding-left:40px;">
+                                                 <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                      <tr> 
+                                                        <td colspan="3" align="left" style="font-size:20px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 20px;" class="pt-10">
+                                                          CiteScore 2022
+                                                        </td>
+                                                      </tr>
+                                                      <tr> 
+                                                        <td align="center" style="font-size:24px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 32px; font-weight: bold;" width="15%">
+                                                          3.6
+                                                        </td>
+                                                        <td align="center" class="mobile-font" style="font-size:24px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 32px; font-weight: bold;" width="15%">
+                                                          =
+                                                        </td>
+                                                          <td align="left" bgcolor="#ffffff" width="70%">
+                                                             <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" style="margin: 0!important;">
+                                                                <tbody>
+                                                                  <tr> 
+                                                                    <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; border-bottom:1px solid #cccccc; padding-bottom: 5px;">
+                                                                      514 citations to date
+                                                                    </td>
+                                                                  </tr>
+                                                                  <tr> 
+                                                                    <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-top: 5px;">
+                                                                      141 documents to date
+                                                                    </td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                          </td>
+                                                      </tr>
+                                                      <tr> 
+                                                        <td colspan="3" align="left" style="font-size:12px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 20px; padding-top: 20px;">
+                                                          Last updated on 05 September, 2022<br>Updated monthly
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                               </td>
+                                             </tr>
+                                         </tbody>
+                                     </table>
+                                    </td>
+                                 </tr>   
+                                </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" bgcolor="#ffffff" style="padding: 0px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="middle" style="border-top:1px solid #cccccc;">&nbsp;</td>
+                        </tr>   
+                    </tbody>
+                </table>
+              </td>
+            </tr>
+           <tr>
+              <td align="left" bgcolor="#ffffff" style="padding: 0 20px 20px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                    <tbody>
+                        <tr>
+                          <td align="left">
+                            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                    <tr>
+                                      <td align="left" bgcolor="#ffffff" style="padding:0px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                          <tbody>
+                                            <tr>
+                                                <td colspan="3" align="left" style="font-size:22px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 20px;">
+                                                  CiteScore rank 2021
+                                                  </td>
+                                            </tr>
+                                             <tr>
+                                                <td align="left">
+                                                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                      <tbody>
+                                                        <tr>
+                                                          <th width="60%" align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 5px;">
+                                                            Category
+                                                            </th>
+                                                            <th width="20%" align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 5px;">
+                                                            Rank 
+                                                            </th>
+                                                            <th width="20%" align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;" class="mob-right">
+                                                            Percentile
+                                                            </th>
+                                                      </tr>
+                                                      <tr>
+                                                          <td colspan="3" align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;">
+                                                            Social Sciences
+                                                            </td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 5px;">
+                                                            <img src="images/arrow.png" alt="arrow">&nbsp;Anthropology
+                                                            </td>
+                                                            <td align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;">
+                                                            #39/443 
+                                                            </td>
+                                                            <td align="left" class="mob-right" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;">
+                                                            <img src="images/p1.png" alt="arrow" style="vertical-align: middle;">&nbsp;91st
+                                                            </td>
+                                                      </tr>
+                                                       <tr>
+                                                      <td colspan="3" align="left" bgcolor="#ffffff" style="padding:10px 0;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center" valign="middle" style="border-top:1px solid #cccccc;line-height: 5px;">&nbsp;</td>
+                                                                </tr>   
+                                                            </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                      <tr>
+                                                          <td colspan="3" align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;">
+                                                            Agricultural and <br class="d-block" style="display: none;">Biological Sciences
+                                                            </td>
+                                                      </tr>
+
+                                                      <tr>
+                                                          <td align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; padding-bottom: 5px;">
+                                                            <img src="images/arrow.png" alt="arrow">&nbsp;Food Science
+                                                            </td>
+                                                            <td align="left" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px; ">
+                                                            #147/338
+                                                            </td>
+                                                            <td align="left" class="mob-right" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 28px;">
+                                                            <img src="images/p2.png" alt="arrow" style="vertical-align: middle;">&nbsp;56th
+                                                            </td>
+                                                      </tr>
+                                                      </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                         </tbody>
+                                     </table>
+                                    </td>
+                                 </tr>   
+                                </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </td>
+            </tr>
+        <tr>
+           <td align="left" bgcolor="#ffffff" style="padding: 10px 20px 0px">
+            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" class="mobile-font-head" style="font-size:32px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;font-weight: bold;line-height:42px;">
+                      <span>Major volumes of our journal</span>
+                      <!-- <p class="full-width" style="border-bottom:4px solid #8a2f02;width: 58%;"></p> -->
+                  </td>
+                </tr>
+                <tr>
+                   <td align="center" bgcolor="#ffffff" style="padding-bottom: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="50%" style="border-bottom:4px solid #8a2f02;">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 5px;">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+          <tr>
+           <td align="left" bgcolor="#F2F1F0" style="padding: 20px 20px;">
+              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                 <tbody>
+                    <tr>
+                       <td align="left">
+                          <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                             <tbody>
+                                <tr>
+                                   <td align="center" bgcolor="#F2F1F0" class="flex" valign="top" width="49%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center" class="mobile-font flex2" valign="top" width="30%">
+                                                <a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618114000079" target="_blank">
+                                                <img alt="hyung-hi" border="0" class="center-on-narrow" src="images/journl-1.png" style="max-width: 100%;"></a></td>
+                                                <td align="left" bgcolor="#F2F1F0" class="mobile-font flex" valign="top" width="70%">
+                                                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-bottom: 15px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618114000079" target="_blank" style="color: #000000;">The inaugural issue of the journal was published in December 2014. This issue set the tone for future issues of the journal, all of which are focused on the scientific investigation of the tradition, history, and health of ethanic food.</a></td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td align="center" bgcolor="#F2F1F0" style="padding-bottom: 20px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="line-height: 5px;">&nbsp;</td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618114000079" target="_blank" style="color: #000000;">Volume 1, Issue 1,<br> December 2014</a></td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                   <td class="flex3" width="2%"></td>
+                                   <td align="center" bgcolor="#F2F1F0" class="mobile-font flex pt-20" valign="middle" width="49%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center" class="mobile-font flex2" valign="top" width="30%">
+                                                <a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116000093" target="_blank">
+                                                <img alt="hyung-hi" border="0" class="center-on-narrow" src="images/journl-2.png" style="max-width: 100%;">
+                                                </a>
+                                                </td>
+                                                <td align="left" bgcolor="#F2F1F0" class="mobile-font flex" valign="top" width="70%">
+                                                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-bottom: 15px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116000093" target="_blank" style="color: #000000;">Published in March 2016, this issue of the journal focused on the “Korean diet,” as a much-needed response to growing international interest in the K-diet, as well as mounting scientific evidence as to its many health benefits.</a></td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td align="center" bgcolor="#F2F1F0" style="padding-bottom: 20px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="line-height: 5px;">&nbsp;</td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116000093" target="_blank" style="color: #000000;">Volume 3, Issue 1,<br> March 2016</a></td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                             </tbody>
+                          </table>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+           </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+           <td align="left" bgcolor="#F2F1F0" style="padding: 20px 20px;">
+              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                 <tbody>
+                    <tr>
+                       <td align="left">
+                          <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                             <tbody>
+                                <tr>
+                                   <td align="center" bgcolor="#F2F1F0" valign="middle" class="flex" width="49%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center" class="mobile-font flex2" valign="top" width="30%">
+                                                <a href="https://www.sciencedirect.com/science/article/pii/S2352618117301841?via%3Dihub" target="_blank">
+                                                <img alt="hyung-hi" border="0" class="center-on-narrow" src="images/journl-3.png" style="max-width: 100%;">
+                                                </a>
+                                                </td>
+                                                <td align="left" bgcolor="#F2F1F0" class="mobile-font flex" valign="top" width="70%">
+                                                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-bottom: 15px;"><a href="https://www.sciencedirect.com/science/article/pii/S2352618117301841?via%3Dihub" target="_blank" style="color: #000000;">This issue, published in December 2017, focuses on the importance of data creation for ethnic foods and how reliable, powerful, and personalized data will help the food industry survive and thrive in the future.</a></td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td align="center" bgcolor="#F2F1F0" style="padding-bottom: 20px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="line-height: 5px;">&nbsp;</td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;"><a href="https://www.sciencedirect.com/science/article/pii/S2352618117301841?via%3Dihub" target="_blank" style="color: #000000;">Volume 4, Issue 4,<br> December 2017</a></td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                   <td class="flex3" width="2%"></td>
+                                   <td align="center" bgcolor="#F2F1F0" class="mobile-font flex pt-20" valign="top" width="49%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center" class="mobile-font flex2" valign="top" width="30%">
+                                                <a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116301081" target="_blank">
+                                                <img alt="image" border="0" class="center-on-narrow" src="images/journl-4.png" style="max-width: 100%;">
+                                                </a>
+                                                </td>
+                                                <td align="left" bgcolor="#F2F1F0" class="mobile-font flex" valign="top" width="70%">
+                                                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                                    <tbody>
+                                                     <tr>
+                                                      <td align="left" class="mobile-font pb-10" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px; padding-bottom: 38px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116301081" target="_blank" style="color: #000000;">This issue, published in December 2016, focused on Indian dietary culture. It takes a look at the influence of ethnicity, geography, religion, and culture on the varied cuisine of India.</a></td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td align="center" bgcolor="#F2F1F0" style="padding-bottom: 20px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="line-height: 5px;">&nbsp;</td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td align="left" class="mobile-font" valign="top" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116301081" target="_blank" style="color: #000000;">Volume 3, Issue 4,<br> December 2016</a></td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                             </tbody>
+                          </table>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+           </td>
+        </tr>
+
+        <tr>
+           <td align="left" bgcolor="#ffffff" style="padding: 30px 20px 0px">
+            <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+              <tbody>
+                <tr>
+                  <td align="center" class="mobile-font-head" style="font-size:32px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;font-weight: bold;line-height:42px;">
+                      <span style="padding-bottom:8px;">Our representative research</span>
+                      <!-- <p class="full-width" style="border-bottom:4px solid #8a2f02;width: 56%;"></p> -->
+                  </td>
+                </tr>
+                <tr>
+                   <td align="center" bgcolor="#ffffff" style="padding-bottom: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="50%" style="border-bottom:4px solid #8a2f02;">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 5px;">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+  <tr>
+   <td align="center" bgcolor="#ffffff" valign="top" style="padding: 0px 20px 20px;">
+      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+         <tbody>
+            <tr>
+               <td align="left" bgcolor="#892e01" style="padding: 30px 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                     <tbody>
+                        <tr>
+                           <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px;" width="49%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                 <tr>
+                                  <td align="left" style="padding-bottom:15px;">
+                                    <a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116300099" target="_blank" style="color:#ffffff;">
+                                    <span style=" font-size: 26px; line-height:32px;"><strong>Korean diet: Characteristics and historical background</strong></span></a>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                  <td align="center" bgcolor="#892e01" style="padding-bottom: 20px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                      <tbody>
+                                        <tr>
+                                          <td style="line-height: 5px;">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px; padding-bottom:15px;">
+                                    <a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116300099" target="_blank" style="color:#ffffff;">
+                                    Due to the growing international interest in the Korean diet (K-diet), researchers undertook to establish cohesive definitions and concepts in K-diet-related dialogue by compiling a list of the 100 most representative Korean dishes based on their role in tradition, culture, and health promotion.</a>
+                                  </td>
+                                </tr>
+                               </tbody>
+                              </table>
+                           </td>
+                           <td class="flex3" width="3%"></td>
+                           <td align="left" class="mobile-font flex" style="font-size:15px;font-weight: 600; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;line-height: 20px;" valign="middle" width="48%"><a href="https://linkinghub.elsevier.com/retrieve/pii/S2352618116300099" target="_blank"><img alt="hyung-hi" border="0" class="center-on-narrow" src="images/food1.png" style="max-width: 100%;"></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </td>
+</tr>
+<tr>
+   <td align="center" bgcolor="#ffffff" valign="top" style="padding: 10px 20px 20px;">
+      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+         <tbody>
+            <tr>
+               <td align="left" bgcolor="#892e01" style="padding: 30px 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                     <tbody>
+                        <tr>
+                          <td align="left" class="mobile-font flex" style="font-size:15px;font-weight: 600; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;line-height: 20px;" valign="middle" width="48%"><a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0026-2" target="_blank"><img alt="food2" border="0" class="center-on-narrow" src="images/food2.jpg" style="max-width: 100%;"></a>
+                           </td>
+                           <td class="flex3" width="3%"></td>
+
+                           <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px;" width="49%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                 <tr>
+                                  <td align="left" style="padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0026-2" target="_blank" style="color:#ffffff;">
+                                    <span style=" font-size: 26px; line-height:32px;"><strong>Namul, the driving force behind health and high vegetable consumption in Korea</strong></span></a>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                  <td align="center" bgcolor="#892e01" style="padding-bottom: 20px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                      <tbody>
+                                        <tr>
+                                          <td style="line-height: 5px;">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px; padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0026-2" target="_blank" style="color:#ffffff;">
+                                    In this review, researchers provide an overview on Namuls—foods made by seasoning edible plants or leaves—an essential component of traditional Korean meals and the primary reason for the health, longevity, and high vegetable consumption of Koreans.</a>
+                                  </td>
+                                </tr>
+                               </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </td>
+</tr>
+<tr>
+   <td align="center" bgcolor="#ffffff" valign="top" style="padding:10px 20px 20px;">
+      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+         <tbody>
+            <tr>
+               <td align="left" bgcolor="#892e01" style="padding: 30px 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                     <tbody>
+                        <tr>
+                           <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px;" width="49%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                 <tr>
+                                  <td align="left" style="padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0011-9" target="_blank" style="color:#ffffff;">
+                                    <span style=" font-size: 26px; line-height:32px;"><strong>The impact of the Green Revolution on the indigenous crops of India</strong></span></a>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                  <td align="center" bgcolor="#892e01" style="padding-bottom: 20px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                      <tbody>
+                                        <tr>
+                                          <td style="line-height: 5px;">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px; padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0011-9" target="_blank" style="color:#ffffff;">
+                                    In this review, researchers throw light on how the Green Revolution affected the production of indigenous crops, as well as society, environment, nutrition and the per capita availability of foods. They also suggest ways to reinvigorate the production of indigenous crops.</a>
+                                  </td>
+                                </tr>
+                               </tbody>
+                              </table>
+                           </td>
+                           <td class="flex3" width="3%"></td>
+                           <td align="left" class="mobile-font flex" style="font-size:15px;font-weight: 600; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;line-height: 20px;" valign="middle" width="48%"><a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0011-9" target="_blank"><img alt="food3" border="0" class="center-on-narrow" src="images/food3.png" style="max-width: 100%;"></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </td>
+</tr>
+<tr>
+   <td align="center" bgcolor="#ffffff" valign="top" style="padding:10px 20px 20px;">
+      <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+         <tbody>
+            <tr>
+               <td align="left" bgcolor="#892e01" style="padding: 30px 20px;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                     <tbody>
+                        <tr>
+                          <td align="left" class="mobile-font flex" style="font-size:15px;font-weight: 600; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#000000;line-height: 20px;" valign="middle" width="48%"><a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0009-3" target="_blank"><img alt="food4" border="0" class="center-on-narrow" src="images/food4.png" style="max-width: 100%;"></a>
+                           </td>
+                           <td class="flex3" width="3%"></td>
+
+                           <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px;" width="49%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                <tbody>
+                                 <tr>
+                                  <td align="left" style="padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0009-3" target="_blank" style="color:#ffffff;">
+                                    <span style=" font-size: 26px; line-height:32px;"><strong>Indonesian food culture mapping: A starter contribution to promote Indonesian culinary tourism</strong></span></a>
+                                  </td>
+                                 </tr>
+                                 <tr>
+                                  <td align="center" bgcolor="#892e01" style="padding-bottom: 20px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%" style="border-bottom:2px solid #ffd706;">
+                                      <tbody>
+                                        <tr>
+                                          <td style="line-height: 5px;">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="left" class="mobile-font pl flex" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#ffffff;line-height:24px; padding-bottom:15px;">
+                                    <a href="https://journalofethnicfoods.biomedcentral.com/articles/10.1186/s42779-019-0009-3" target="_blank" style="color:#ffffff;">
+                                    In this review, researchers have delved deep into the history, development, and longevity of Indonesian food culture and its transition into a deeply embedded multi-generational, societal value.</a>
+                                  </td>
+                                </tr>
+                               </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </td>
+</tr>
+<tr>
+                      <td align="center" style="padding: 20px 20px 30px;">
+                        <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                          <tbody>
+                            <tr>
+                              <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                                  <tbody>
+                                    <tr>
+                                      <td style="border-radius: 50px; background: #ffd706;text-align: center;" class="mobile-font"><a href="https://www.editorialmanager.com/jefo/default2.aspx"class="mobile-font padd-mob" target="_blank" style="background: #ffd706; border: 1px solid #ffd706; font-family: Arial, Helvetica, sans-serif; font-size: 22px; line-height: 32px; text-decoration: none; padding: 15px 60px; color: #000000;display: block; border-radius: 50px; font-weight: bold;box-shadow: 2px 3px 6px 3px #ededed;">We welcome new articles! <br class="flex3">Submit your work to <em>Journal of Ethnic Foods!</em></a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+            <tr>
+              <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr> 
+                      <td align="center" class="mobile-font" style="font-size:20px;padding: 0px 30px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;text-align: center;">For journal related inquiries, please email <a href="mailto:jef@kfri.re.kr" style="color: #000000;"><strong>jef@kfri.re.kr</strong></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+             <tr>
+              <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr> 
+                      <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #000000;line-height: 24px;padding: 20px 30px;"> If you no longer wish to receive emails from the Korea Food Research Institute,<br class="flex3">
+please reply to this email with the subject <a href="{{{unsubscribe}}}" target="_blank" style="font-family: Arial, Helvetica, sans-serif;font-size: 16px; font-weight: bold; color: #000000; text-decoration: none;">“Unsubscribe.”</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#892e01">
+                <table border="0" cellpadding="0" cellspacing="0" class="responsive-table" width="100%">
+                  <tbody>
+                    <tr> 
+                      <td align="center" class="mobile-font" style="font-size:16px; font-family:'PT Sans', Arial, Helvetica, sans-serif; color: #ffffff;line-height: 24px;padding: 20px 30px;"> Copyright © 2022 Korea Food Research Institute</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+    </center>
+    <![endif]-->
+</body>
+</html>
